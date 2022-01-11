@@ -18,3 +18,32 @@ function countBodyChildren(){
 
 // 在页面加载时调用countBodyChildre元素
 window.onload = countBodyChildren;
+
+// 6.3.1 添加事件处理函数
+function preparaGallery() {
+    if (!document.getElementsByTagName) return false;  //  如果getElementsByTagNmae未定义，请现在离开
+    if (!document.getElementById) return false;
+    if (!document.getElementById("imagegallery")) return false;
+    var gallery = document.getElementById("imagegallery");
+    var links = gallery.getElementsByTagName("a");
+    for (var i=0; i<links.length; i++ ) {
+     links[i].onclick = function() {
+         showPic(this);
+         return false;
+        }   
+    }
+}
+
+// 6.3.2 共享onload事件
+function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != "function") {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            onload();
+            func();
+        }
+    }
+}
+addLoadEvent(preparaGallery);
