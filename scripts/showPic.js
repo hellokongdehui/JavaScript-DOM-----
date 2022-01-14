@@ -1,13 +1,17 @@
-// 切换显示图片
 function showPic(whichpic) {
+    // 切换显示图片
+    if (!document.getElementById("placeholder")) return false;
     var source = whichpic.getAttribute("href");  // 获取href属性
     var placeholder = document.getElementById("placeholder");  // 获取元素
     placeholder.setAttribute("src", source);  // 设置元素src属性
 
     // 切换描述文字
-    var text = whichpic.getAttribute("title");
-    var description = document.getElementById("description");
-    description.firstChild.nodeValue = text;
+    if (document.getElementById("description")) {
+        var text = whichpic.getAttribute("title");
+        var description = document.getElementById("description");
+        description.firstChild.nodeValue = text;
+    }
+    return false;
 }
 
 // 计算body元素下的子元素数量
@@ -27,9 +31,8 @@ function preparaGallery() {
     var gallery = document.getElementById("imagegallery");
     var links = gallery.getElementsByTagName("a");
     for (var i=0; i<links.length; i++ ) {
-     links[i].onclick = function() {
-         showPic(this);
-         return false;
+        links[i].onclick = function() {
+            return !showPic(this);
         }   
     }
 }
