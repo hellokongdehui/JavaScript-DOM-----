@@ -3,13 +3,16 @@ function showPic(whichpic) {
     if (!document.getElementById("placeholder")) return false;
     var source = whichpic.getAttribute("href");  // 获取href属性
     var placeholder = document.getElementById("placeholder");  // 获取元素
+    if (placeholder.nodeName != "IMG") return false;  //检查placeholder是否存在 p87
     placeholder.setAttribute("src", source);  // 设置元素src属性
 
     // 切换描述文字
     if (document.getElementById("description")) {
-        var text = whichpic.getAttribute("title");
+        var text = whichpic.getAttribute("title") ? whichpic.getAttribute("title") : "";  // ?(三元操作符)，问号后面是变量text的两种可取值 p87
         var description = document.getElementById("description");
-        description.firstChild.nodeValue = text;
+        if (description.firstChild.nodeType == 3) {  // 检查是否为文本节点 p87
+            description.firstChild.nodeValue = text;
+        }
     }
     return false;
 }
@@ -32,7 +35,7 @@ function preparaGallery() {
     var links = gallery.getElementsByTagName("a");
     for (var i=0; i<links.length; i++ ) {
         links[i].onclick = function() {
-            return !showPic(this);
+            return showPic(this) ? false : true;
         }   
     }
 }
