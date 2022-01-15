@@ -19,10 +19,24 @@ ul {
 }
 li {
     float: left;
-    padding: 1em;
+    padding: 0.5em;
     list-style: none;
 }
 img {
     display: block;
     clear: both;
+}
+/* 使图片清单不带项目符号 */
+#imagegallery {
+    list-style: none;
+}
+/* 列表项横向显示 */
+#imagegallery{
+    display: inline;
+}
+/* 设置列表项图片 */
+#imagegallery li a img{
+    border: 2px solid orange;
+    width: 60px;
+    height: 90px;
 }

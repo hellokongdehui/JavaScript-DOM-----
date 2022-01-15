@@ -6,22 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript图片库</title>
     <script type="text/javascript" src="/scripts/showPic.js"></script>
-    <link rel="stylesheet" href="/styles/layout.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="/styles/layout.css" media="screen">
 </head>
 <body>
     <h1>图片库</h1>
     <ul id="imagegallery"> 
         <li>
-            <a href="/images/city1.jpeg" onclick="showPic(this); return false;" title="city1">city</a>
+            <a href="/images/city1.jpeg" onclick="showPic(this); return false;" title="city1">
+                <img src="/images/city1.jpeg" alt="city" />
+            </a>
         </li>
         <li>
-            <a href="/images/building1.jpeg" onclick="showPic(this); return false;" title="building1">building</a>
+            <a href="/images/building1.jpeg" onclick="showPic(this); return false;" title="building1">
+                <img src="/images/building1.jpeg" alt="building" />
+            </a>
         </li>
         <li>
-            <a href="/images/sky1.jpeg" onclick="showPic(this); return false;" title="sky1">sky</a>
+            <a href="/images/sky1.jpeg" onclick="showPic(this); return false;" title="sky1">
+                <img src="/images/sky1.jpeg" alt="sky" />
+            </a>
         </li>
         <li>
-            <a href="/images/flower1.jpeg" onclick="showPic(this); return false;" title="flower1">flower</a>
+            <a href="/images/flower1.jpeg" onclick="showPic(this); return false;" title="flower1">
+                <img src="/images/flower1.jpeg" alt="flower" />
+            </a>
         </li>
     </ul>
     <img id="placeholder" src="/images/placeholder.jpg" alt="My image Gallery" width="320" height="540">
